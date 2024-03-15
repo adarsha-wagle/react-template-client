@@ -39,6 +39,7 @@
         "endOfLine": "auto",
       },
     ],
+    "linebreak-style": 0,
     "no-undef": "off",
 
     "no-alert": 0,
