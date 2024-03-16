@@ -1,0 +1,44 @@
+/* ------ START HIDE SCROLLBAR ------ */
+.no__scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.no__scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* ------ END HIDE SCROLLBAR ------ */
+
+/* ------ START MAX WIDTH ------ */
+.apply--maxwidth {
+  max-width: 1440px;
+  padding: 1.5rem 0.75rem;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 640px) {
+  .apply--maxwidth {
+    padding: 2rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .apply--maxwidth {
+    padding: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .apply--maxwidth {
+    padding: 2rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .apply--maxwidth {
+    padding: 2.5rem 100px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .apply--maxwidth {
+    padding: 3rem 6.25rem;
+  }
+}
+/* ------ END SCROLLBAR ----- */

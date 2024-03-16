@@ -60,8 +60,11 @@ body {
 
 /* Set core body defaults */
 body {
-  /* min-height: 100vh;*/
+  /* min-height: 100vh; */
   line-height: 1.5;
+}
+main {
+  height: 100svh;
 }
 
 /* Set shorter line heights on headings and interactive elements */

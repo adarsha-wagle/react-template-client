@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { Theme } from '@emotion/react';
 
-import './App.css';
+import './global.css';
 
 import RootLayout from './layout/root_layout.tsx';
 

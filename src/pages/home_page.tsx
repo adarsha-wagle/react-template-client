@@ -1,17 +1,6 @@
-import { Typography } from '@mui/material';
-import { useDispatch } from 'react-redux';
-import { toggleTheme } from 'src/redux/actions/theme.slice.ts';
+import HomeView from 'src/views/home/index.tsx';
 
 function HomePage() {
-  const dispatch = useDispatch();
-
-  return (
-    <div>
-      <Typography color="primary">Hello world</Typography>
-      <button type="button" onClick={() => dispatch(toggleTheme())}>
-        Change Mode
-      </button>
-    </div>
-  );
+  return <HomeView />;
 }
 export default HomePage;
