@@ -1,6 +1,6 @@
-import { Mode } from './utils.ts';
+import { ThemeMode } from 'src/types/theme_type.ts';
 // color design tokens export
-const tokens = (mode: Mode) => ({
+const tokens = (mode: ThemeMode) => ({
   ...(mode === 'dark'
     ? {
         grey: {
@@ -118,7 +118,7 @@ const tokens = (mode: Mode) => ({
       }),
 });
 
-export function getPalette(mode: Mode) {
+export function getPalette(mode: ThemeMode) {
   const colors = tokens(mode);
 
   if (mode === 'dark') {

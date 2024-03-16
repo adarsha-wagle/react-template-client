@@ -1,11 +1,8 @@
-import { useState, useMemo } from 'react';
-import { createTheme } from '@mui/material';
-
-import { Mode } from './utils.ts';
+import { ThemeMode } from 'src/types/theme_type.ts';
 import { getPalette } from './palette.ts';
 
 // Mui Theme Setting
-function themeSettings(mode: Mode) {
+export function themeSettings(mode: ThemeMode) {
   return {
     palette: getPalette(mode),
     typography: {
@@ -22,16 +19,3 @@ function themeSettings(mode: Mode) {
     },
   };
 }
-
-export const useMode = () => {
-  const [mode, setMode] = useState<Mode>('dark');
-
-  const colorMode = useMemo(
-    () => ({
-      toggleColorMode: () => setMode((prev) => (prev === 'light' ? 'dark' : 'light')),
-    }),
-    []
-  );
-  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
-  return [theme, colorMode];
-};

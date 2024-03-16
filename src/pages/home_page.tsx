@@ -1,13 +1,16 @@
 import { Typography } from '@mui/material';
-import { useMode } from 'src/theme/theme.ts';
+import { useDispatch } from 'react-redux';
+import { toggleTheme } from 'src/redux/actions/theme.slice.ts';
 
 function HomePage() {
-  const [colorMode] = useMode();
-  console.log('color mode', colorMode);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <Typography color="primary">Hello world</Typography>
-      <button type="button">Change Mode</button>
+      <button type="button" onClick={() => dispatch(toggleTheme())}>
+        Change Mode
+      </button>
     </div>
   );
 }
