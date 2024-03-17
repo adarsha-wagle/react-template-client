@@ -15,14 +15,13 @@ import {
   Button,
   Avatar,
 } from '@mui/material';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
-// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import MenuIcon from '@mui/icons-material/Menu';
+import AdjustIcon from '@mui/icons-material/Adjust';
 import logo from 'src/assets/logo/logo.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from 'src/redux/actions/theme.slice.ts';
 import { ThemeMode } from 'src/types/theme_type.ts';
-// import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface NavItem {
   id: number;
@@ -86,7 +85,7 @@ function NavBar() {
           }}
         >
           <Link to="/" replace style={{ textDecoration: 'none' }}>
-            <Avatar alt="BBG Logo" src={logo} sx={{ width: '4.375rem', height: '4.375rem' }} />
+            <Avatar alt="My Logo" src={logo} sx={{ width: '4.375rem', height: '4.375rem' }} />
           </Link>
           <Link to="/" replace style={{ textDecoration: 'none' }}>
             <Typography
@@ -107,7 +106,7 @@ function NavBar() {
           onClick={handleDrawerToggle}
           sx={{ mr: 2, display: { md: 'none' } }}
         >
-          Menu
+          <MenuIcon />
         </IconButton>
 
         <Box
@@ -158,7 +157,7 @@ function NavBar() {
                 },
               }}
               onClick={() => dispatch(toggleTheme())}
-              // startIcon={<PersonAddAlt1Icon />}
+              startIcon={<AdjustIcon />}
             >
               {mode}
             </Button>
@@ -192,7 +191,9 @@ export default NavBar;
 const DrawerContent: React.FC<DrawerContentProps> = ({ handleDrawerToggle }) => (
   <Box sx={{ padding: '1rem' }}>
     <Box sx={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
-      <IconButton onClick={handleDrawerToggle}>Close</IconButton>
+      <IconButton onClick={handleDrawerToggle}>
+        <CloseIcon />
+      </IconButton>
     </Box>
     <Box
       sx={{
@@ -203,7 +204,7 @@ const DrawerContent: React.FC<DrawerContentProps> = ({ handleDrawerToggle }) => 
         gap: '1rem',
       }}
     >
-      <Avatar alt="BBG Logo" src={logo} sx={{ width: '3.5rem', height: '3.5rem' }} />
+      <Avatar alt="My Logo" src={logo} sx={{ width: '3.5rem', height: '3.5rem' }} />
       <Typography
         sx={{
           fontSize: '1.2rem',
@@ -213,7 +214,7 @@ const DrawerContent: React.FC<DrawerContentProps> = ({ handleDrawerToggle }) => 
           cursor: 'pointer',
         }}
       >
-        Welcome to BBG
+        Welcome
       </Typography>
     </Box>
     <Divider />
