@@ -15,3 +15,8 @@ src/service-worker.js
 src/serviceWorkerRegistration.js
 src/setupTests.js
 
+*.test.js
+*.test.jsx
+*.test.ts
+*.test.tsx
+

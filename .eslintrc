@@ -43,7 +43,7 @@
     "indent": "off",
     "linebreak-style": 0,
     "no-undef": "off",
-
+    "object-curly-newline": "off",
     "no-alert": 0,
     "camelcase": 0,
     "no-console": 0,

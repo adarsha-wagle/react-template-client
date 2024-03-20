@@ -9,7 +9,12 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 export default function Footer() {
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'primary' }} component="footer">
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: 'primary' }}
+      component="footer"
+      className="apply--maxwidth"
+    >
       <Typography variant="h5">I am Footer</Typography>
       <List
         sx={{
