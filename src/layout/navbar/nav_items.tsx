@@ -1,5 +1,6 @@
 import React from 'react';
-import { ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { ListItem } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 interface NavItem {
   id: number;
@@ -10,7 +11,7 @@ const navItems: NavItem[] = [
   {
     id: 1,
     name: 'Home',
-    to: '/home',
+    to: '/',
   },
   {
     id: 2,
@@ -29,9 +30,7 @@ function NavItems() {
     <>
       {navItems.map((item) => (
         <ListItem key={item.id} disablePadding>
-          <ListItemButton sx={{ textAlign: 'center' }}>
-            <ListItemText primary={item.name} />
-          </ListItemButton>
+          <Link to={item?.to}>{item?.name}</Link>
         </ListItem>
       ))}
     </>

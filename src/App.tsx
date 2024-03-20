@@ -1,4 +1,4 @@
-import { Suspense, useMemo } from 'react';
+import React, { Suspense, useMemo } from 'react';
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -15,10 +15,11 @@ import './global.css';
 
 import RootLayout from './layout/root_layout.tsx';
 
-import HomePage from './pages/home_page.tsx';
-
 import { themeSettings } from './theme/theme.ts';
 import { ThemeMode } from './types/theme_type.ts';
+
+const LazyHomePage = React.lazy(() => import('./pages/home_page.tsx'));
+const LazyAboutPage = React.lazy(() => import('./pages/about_page.tsx'));
 
 function App() {
   const themeMode = useSelector((state: { theme: { mode: ThemeMode } }) => state.theme.mode);
@@ -31,7 +32,8 @@ function App() {
       createBrowserRouter(
         createRoutesFromElements(
           <Route path="/" element={<RootLayout />}>
-            <Route index element={<HomePage />} />
+            <Route index element={<LazyHomePage />} />
+            <Route path="/about" element={<LazyAboutPage />} />
           </Route>
         )
       ),
@@ -42,7 +44,7 @@ function App() {
   return (
     <ThemeProvider theme={theme as Partial<Theme>}>
       <CssBaseline />
-      <Suspense fallback="Loading">
+      <Suspense fallback="Loading...">
         <RouterProvider router={router} />
       </Suspense>
     </ThemeProvider>
