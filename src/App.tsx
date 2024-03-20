@@ -18,6 +18,9 @@ import RootLayout from './layout/root_layout.tsx';
 import { themeSettings } from './theme/theme.ts';
 import { ThemeMode } from './types/theme_type.ts';
 
+import ErrorBoundary from './views/error_boundary.tsx';
+import RootBoundaryError from './layout/root_boundary_error.tsx';
+
 const LazyHomePage = React.lazy(() => import('./pages/home_page.tsx'));
 const LazyAboutPage = React.lazy(() => import('./pages/about_page.tsx'));
 
@@ -31,7 +34,7 @@ function App() {
     () =>
       createBrowserRouter(
         createRoutesFromElements(
-          <Route path="/" element={<RootLayout />}>
+          <Route path="/" element={<RootLayout />} errorElement={<RootBoundaryError />}>
             <Route index element={<LazyHomePage />} />
             <Route path="/about" element={<LazyAboutPage />} />
           </Route>
@@ -44,9 +47,11 @@ function App() {
   return (
     <ThemeProvider theme={theme as Partial<Theme>}>
       <CssBaseline />
-      <Suspense fallback="Loading...">
-        <RouterProvider router={router} />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback="Loading...">
+          <RouterProvider router={router} />
+        </Suspense>
+      </ErrorBoundary>
     </ThemeProvider>
   );
 }
