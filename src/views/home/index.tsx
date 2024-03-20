@@ -1,12 +1,12 @@
-import { Typography } from '@mui/material';
+import FirstSectionHomeLanding from './components/first_section_home_landing';
 
 function HomeView() {
   return (
     <main>
       <section>
-        <Typography variant="h1" color="neutral.main">
-          Home Section
-        </Typography>
+        <div className="apply--maxwidth">
+          <FirstSectionHomeLanding />
+        </div>
       </section>
     </main>
   );
