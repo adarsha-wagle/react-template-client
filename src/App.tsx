@@ -18,7 +18,6 @@ import RootLayout from './layout/root_layout.tsx';
 import { themeSettings } from './theme/theme.ts';
 import { ThemeMode } from './types/theme_type.ts';
 
-import ErrorBoundary from './views/error_boundary.tsx';
 import RootBoundaryError from './layout/root_boundary_error.tsx';
 
 const LazyHomePage = React.lazy(() => import('./pages/home_page.tsx'));
@@ -47,11 +46,9 @@ function App() {
   return (
     <ThemeProvider theme={theme as Partial<Theme>}>
       <CssBaseline />
-      <ErrorBoundary>
-        <Suspense fallback="Loading...">
-          <RouterProvider router={router} />
-        </Suspense>
-      </ErrorBoundary>
+      <Suspense fallback="Loading...">
+        <RouterProvider router={router} />
+      </Suspense>
     </ThemeProvider>
   );
 }
