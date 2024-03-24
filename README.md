@@ -9,7 +9,9 @@ This template provides a minimal setup to kickstart your projects, featuring pop
 1. Clone the repository:
 
    ```bash
-   npx degit adarsha-wagle/react-template project_name
+   git clone https://github.com/adarsha-wagle/react-template-client.git
+   OR
+   npx degit adarsha-wagle/react-template-client project_name
 
    ```
 
