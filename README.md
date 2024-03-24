@@ -52,3 +52,7 @@ This template provides a minimal setup to kickstart your projects, featuring pop
 - |-- index.jsx
 - |-- theme.jsx
 - |-- ...
+
+## Preview
+
+![preview](public/preview1.jpg)
