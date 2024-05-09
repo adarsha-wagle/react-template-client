@@ -10,9 +10,10 @@ This template provides a minimal setup to kickstart your projects, featuring pop
 
    ```bash
    git clone https://github.com/adarsha-wagle/react-template-client.git
-   OR
+   ```
+    OR
+      ```bash
    npx degit adarsha-wagle/react-template-client project_name
-
    ```
 
 1. Navigate to the project directory:
