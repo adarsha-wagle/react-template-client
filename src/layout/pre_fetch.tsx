@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom';
 function PreFetch() {
   useEffect(() => {
     console.log('subscribing');
+    // const users = store.dispatch(userApiSlice.endpoints.getUsers.initiate())
     return () => {
       console.log('unsubscribing');
     };

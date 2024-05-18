@@ -19,9 +19,13 @@ import { themeSettings } from './theme/theme.ts';
 import { ThemeMode } from './types/theme_type.ts';
 
 import RootBoundaryError from './layout/root_boundary_error.tsx';
+import PersistLogin from './layout/persist_login.tsx';
 
 const LazyHomePage = React.lazy(() => import('./pages/home_page.tsx'));
 const LazyAboutPage = React.lazy(() => import('./pages/about_page.tsx'));
+
+import { ROLES } from './config/roles.ts';
+import RequireAuth from './layout/required_auth.tsx';
 
 function App() {
   const themeMode = useSelector((state: { theme: { mode: ThemeMode } }) => state.theme.mode);
@@ -35,7 +39,11 @@ function App() {
         createRoutesFromElements(
           <Route path="/" element={<RootLayout />} errorElement={<RootBoundaryError />}>
             <Route index element={<LazyHomePage />} />
-            <Route path="/about" element={<LazyAboutPage />} />
+            <Route element={<PersistLogin />}>
+              <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+                <Route path="/about" element={<LazyAboutPage />} />
+              </Route>
+            </Route>
           </Route>
         )
       ),
